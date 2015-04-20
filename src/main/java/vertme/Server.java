@@ -10,7 +10,7 @@ public class Server {
 		final Vertx vertx = Vertx.vertx();
 		for(int i=0;i<8;i++){
 			vertx.createHttpServer().requestHandler(req->{
-				req.response().end("hello world!");
+				req.response().putHeader("content-type", "text/html").end("<html><body><h1>Hello</h1></body></html>");
 			}).listen(8080);
 		}
 		System.in.read();
